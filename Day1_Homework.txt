@@ -1,0 +1,59 @@
+Factorial
+=================================================================
+package Week1.Day1.classroom;
+
+public class Factorial {
+
+	public static void main(String[] args) {
+		int fact= 1;
+		int count = 5;
+		for (int i = 1; i <= count; i++ ) {
+			fact = fact * i; }
+		System.out.println(fact);
+	}
+}
+=================================================================
+
+OddNumbers
+===================
+
+package Week1.Day1.classroom;
+
+public class OddNumbers {
+
+	public static void main(String[] args) {
+		
+		int num = 20;
+		for (int j = 1; j <= num; j++ ) {
+			if (j%2 != 0) {
+				System.out.println(j);
+			}
+			
+			
+		}
+
+	}
+
+}
+===============================================================
+
+fibanocci series
+====================
+package Week1.Day1.assignments;
+
+public class FibonacciSeries {
+
+	public static void main(String[] args) {
+		int range = 10;
+		int firstNum = 0;
+		int secondNum = 1;
+		int sum;
+		for (int i=1; i<= range; i++) {
+			System.out.println(firstNum);
+			sum = firstNum + secondNum;
+			firstNum = secondNum ;
+			secondNum = sum ;
+			}
+	}
+}
+====================================================
