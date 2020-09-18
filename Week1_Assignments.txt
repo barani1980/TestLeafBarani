@@ -1,0 +1,146 @@
+Weekly Assignments:
+
+=================================================================================
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day1/classroom/SwitchOperator.java
+
+=================================================================================
+package Week1.Day2.assignments;
+
+public class SwitchOperator {
+
+	public static void main(String[] args) {
+	
+		int a = 2;
+		int b = 3;
+		int c = 0;
+		String input = "abc";
+		switch (input) {
+		case "add": c = a+b; System.out.println("Addition value is "+ c);
+		break;
+		case "subtract": c = a-b; System.out.println("subtraction value is "+ c);
+		break;
+		case "multiply": c = a*b; System.out.println("multiplication value is "+ c);
+		break;
+		default: c=a/b; System.out.println("By Default, division value is " + c);
+		}
+	}
+
+}
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day1/assignments/PrimeNumber.java
+
+=================================================================================
+package Week1.Day2.assignments;
+
+public class PrimeNumber {
+
+	public static void main(String[] args) {
+		int num = 17;
+		int incr = 2;
+		boolean prime = true;
+		for (int i = 1; i <= num/2; i++) {
+		
+			if (num % incr == 0) {
+				prime = false;
+				break;
+				}
+		incr = incr + 1;
+		}
+			if (prime) {
+				System.out.println("The given number is prime");
+			}
+				else {
+					System.out.println("The given number is not prime");
+				}
+	}
+}
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day2/classroom/arrays/FindSecondLargest.java
+
+=================================================================================
+package Week1.Day2.assignments;
+
+import java.util.Arrays;
+
+public class FindSecondLargest {
+
+	public static void main(String[] args) {
+		int[] num = {2,3,8,9,4,5,6,11,34};
+		int size = num.length;
+		Arrays.sort(num);
+		System.out.println(num[size-2]);
+	}
+}
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day2/classroom/arrays/MissingElementInAnArray.java
+
+=================================================================================
+package Week1.Day2.assignments;
+
+import java.util.Arrays;
+
+public class MissingElementInAnArray {
+
+	public static void main(String[] args) {
+		int[] missingEle = {1,2,3,4,7,6,8};
+		int size = missingEle.length;
+		Arrays.sort (missingEle);
+		int next = missingEle[0] + 1;
+		
+		for (int i = 1; i < size; i++) {
+			if (missingEle[i] != next) {
+				System.out.println("We are missing " + next);
+				break;
+				}
+			next = next + 1;
+		}
+	}
+
+}
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day2/classroom/arrays/PrintDuplicatesInArray.java
+
+=================================================================================
+package Week1.Day2.assignments;
+
+public class PrintDuplicatesInArray {
+
+	public static void main(String[] args) {
+		int[] arr = {14,12,13,11,15,14,18,16,17,19,18,17,20};
+		int size = arr.length;
+		int count = 0;
+		
+		for (int i = 0; i < size; i++) {
+			for (int j = i +1; j < size; j++) {
+				if (arr[i] == arr[j]) {
+					System.out.println("Duplicate value in array is " + arr[i]);
+					break;
+				}
+				
+			}
+		}
+	}
+
+}
+=================================================================================
+https://github.com/TestLeafPages/SeleniumAssignments/blob/master/week1/day2/assignments/mandatory/FindIntersection.java
+=================================================================================
+package Week1.Day2.assignments;
+
+public class FindIntersection {
+
+	public static void main(String[] args) {
+		int array1[] = {3,2,11,4,6,7};
+		int array2[] = {1,2,8,4,9,7};
+		
+		for (int i = 0; i < array1.length; i++) {
+			for (int j = 0; j < array2.length; j++) {
+				if (array1[i] == array2[j]) {
+					System.out.println("This array1 value exists in array2 also - " + array1[i]);
+				}
+			}
+		}
+	}
+}
+=================================================================================
