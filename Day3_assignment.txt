@@ -1,0 +1,160 @@
+=====================================================================================================
+1. Create Lead:
+=====================================================================================================
+package Week2.Day1;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class CreateLead {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+		driver.findElementById("username").sendKeys("demosalesmanager");
+		driver.findElementById("password").sendKeys("crmsfa");
+		driver.findElementByClassName("decorativeSubmit").click();
+		driver.findElementByLinkText("CRM/SFA").click();
+		driver.findElementByLinkText("Leads").click();
+		driver.findElementByLinkText("Create Lead").click();
+		driver.findElementById("createLeadForm_companyName").sendKeys("DXC Technologies");
+		driver.findElementById("createLeadForm_firstName").sendKeys("Baranidharan");
+		driver.findElementById("createLeadForm_lastName").sendKeys("Krishnamoorthy");
+		
+		WebElement source = driver.findElementById("createLeadForm_dataSourceId");
+		Select dropDown1 = new Select(source);
+		dropDown1.selectByVisibleText("Employee");
+		
+		WebElement marketing = driver.findElementById("createLeadForm_marketingCampaignId");
+		Select dropDown2 = new Select(marketing);
+		dropDown2.selectByValue("9001");
+		
+		WebElement industry = driver.findElementById("createLeadForm_industryEnumId");
+		Select dropDown3 = new Select(industry);
+		List<WebElement> industryOptions = dropDown3.getOptions();
+		int size1 = industryOptions.size();
+		dropDown3.selectByIndex(size1-2);
+		
+		WebElement ownership = driver.findElementById("createLeadForm_ownershipEnumId");
+		Select dropDown4 = new Select(ownership);
+		List<WebElement> ownOptions = dropDown4.getOptions();
+		dropDown4.selectByIndex(5);
+		
+		WebElement country = driver.findElementById("createLeadForm_generalCountryGeoId");
+		Select dropDown5 = new Select(country);
+		dropDown5.selectByVisibleText("India");
+		
+		driver.findElementByName("submitButton").click();
+		String title = driver.getTitle();
+	}
+
+}
+=====================================================================================================
+2. Create Account:
+=====================================================================================================
+package Week2.Day1;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class CreateAccount {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+		driver.findElementById("username").sendKeys("demosalesmanager");
+		driver.findElementById("password").sendKeys("crmsfa");
+		driver.findElementByClassName("decorativeSubmit").click();
+		driver.findElementByLinkText("CRM/SFA").click();
+		driver.findElementByLinkText("Accounts").click();
+		driver.findElementByLinkText("Create Account").click();
+		driver.findElementById("accountName").sendKeys("Debit Limited Account TestLeaf");
+		driver.findElementByName("description").sendKeys("Selenium Automation Tester");
+		driver.findElementById("groupNameLocal").sendKeys("Local Debit account TestLeaf");
+		driver.findElementById("officeSiteName").sendKeys("Ramanujam Tech Park");
+		driver.findElementById("annualRevenue").sendKeys("10000");
+		
+		WebElement industry = driver.findElementByName("industryEnumId");
+		Select dropDown1 = new Select(industry);
+		dropDown1.selectByVisibleText("Computer Software");
+		
+		WebElement ownership = driver.findElementByName("ownershipEnumId");
+		Select dropDown2 = new Select(ownership);
+		dropDown2.selectByVisibleText("S-Corporation");
+		
+		WebElement source = driver.findElementById("dataSourceId");
+		Select dropDown3 = new Select(source);
+		dropDown3.selectByValue("LEAD_EMPLOYEE");
+		
+		WebElement campaign = driver.findElementById("marketingCampaignId");
+		Select dropDown4 = new Select(campaign);
+		dropDown4.selectByIndex(6);
+		
+		WebElement state = driver.findElementById("generalStateProvinceGeoId");
+		Select dropDown5 = new Select(state);
+		dropDown5.selectByValue("TX");
+		
+		driver.findElementByClassName("smallSubmit").click();
+		
+		System.out.println(driver.getTitle());
+		driver.close();
+		
+	}
+
+}
+=====================================================================================================
+3. assignment 3:
+=====
+1. Load url "https://acme-test.uipath.com/login"
+
+2. Enter email as "kumar.testleaf@gmail.com"
+
+3. Enter Password as "leaf@12"
+
+4. Click login button
+
+5. Get the title of the page and print
+
+6. Click on Log Out
+
+7. Close the browser
+======================================================================================================
+package Week2.Day1;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class AcmeLoginTest {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://acme-test.uipath.com/login");
+		driver.findElementById("email").sendKeys("kumar.testleaf@gmail.com");
+		driver.findElementById("password").sendKeys("leaf@12");
+		driver.findElementByXPath("//button[@type='submit']").click();
+
+		System.out.println(driver.getTitle());
+		
+		driver.findElementByLinkText("Log Out").click();
+		driver.close();
+	}
+
+}
+======================================================================================================
